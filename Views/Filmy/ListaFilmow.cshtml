@@ -1,0 +1,43 @@
+﻿@model TISklep.ViewModels.KategoriaViewModel
+@{
+    ViewData["Title"] = "Lista z kategorii";
+}
+
+<table>
+    <tr class="banner">
+        @foreach (var film in Model.FilmyTop3Najnowsze)
+        {
+            <td class="film">
+                <h3>@film.Tytul</h3>
+                <img src="~/content/@film.Plakat" />
+                <p>@film.Opis</p>
+            </td>
+        }
+    </tr>
+</table>
+
+<h1>@Model.Kategoria.Nazwa - @Model.Kategoria.Opis</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tytuł filmu</th>
+            <th>Reżyser</th>
+            <th>Data dodania</th>
+            <th>Cena</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var film in Model.FilmyKategorii)
+        {
+            <tr>
+                <td>@film.Tytul</td>
+                <td>@film.Rezyser</td>
+                <td>@film.DataDodania</td>
+                <td>@film.Cena</td>
+                <td>
+                    <a href="@Url.Action("Szczegoly", "Filmy", new { idFilmu = film.Id })">&#128270;</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

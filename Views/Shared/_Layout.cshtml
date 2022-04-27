@@ -1,0 +1,35 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Wypożyczalnia filmów</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+<body>
+    @(await Component.InvokeAsync("Menu"))
+
+    <div class="main_page">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="stopka">
+        <ul>
+            <li><a href="@Url.Action("StronyStatyczne", "Home", new { nazwa = "Onas" })">O nas</a></li>
+            <li><a href="@Url.Action("StronyStatyczne", "Home", new { nazwa = "Regulamin" })">Regulamin</a></li>
+            <li><a href="@Url.Action("StronyStatyczne", "Home", new { nazwa = "MetodyPlatnosci" })">Metody płatności</a></li>
+            <li><a href="@Url.Action("StronyStatyczne", "Home", new { nazwa = "Kontakt" })">Kontakt</a></li>
+        </ul>
+        <a href="@Url.Action("DodajFilm", "Filmy")" class="btn btn-dark">Dodaj film</a>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
