@@ -6,18 +6,18 @@
     <div id="menu">
         @foreach (var kategoria in Model)
         {
-            <a href="@Url.Action("ListaFilmow", "Filmy", new { nazwaKategorii = kategoria.Nazwa })" class="menu-link"> @kategoria.Nazwa </a>
-        }
+    <a href="@Url.Action("ListaFilmow", "Filmy", new { nazwaKategorii = kategoria.Nazwa })" class="menu-link"> @kategoria.Nazwa </a>}
         <a href="@Url.Action("WszystkieFilmy", "Filmy")" class="menu-link"> Wszystkie </a>
+        <a href="@Url.Action("Index", "Koszyk")" class="menu-link"> &#128717; (@ViewBag.quantity ) </a>
+
         @using (Html.BeginForm("Szukaj", "Filmy"))
         {
-        <div class="input-group">
-            <div class="form-outline">
-                <input type="search" class="form-control" name="fraza"/>
-                
-            </div>
-            <button class="btn btn-primary" type="submit">Szukaj</button>
+    <div class="input-group">
+        <div class="form-outline">
+            <input type="search" class="form-control" name="fraza" />
+
         </div>
-        }
+        <button class="btn btn-primary" type="submit">Szukaj</button>
+    </div>}
     </div>
 </header>
