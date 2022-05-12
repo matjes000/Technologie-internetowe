@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\TISklep\\TISklep\\TISklep.csproj": {}
+    "F:\\TISklep\\TISklep\\TISklep.csproj": {}
   },
   "projects": {
-    "E:\\TISklep\\TISklep\\TISklep.csproj": {
+    "F:\\TISklep\\TISklep\\TISklep.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\TISklep\\TISklep\\TISklep.csproj",
+        "projectUniqueName": "F:\\TISklep\\TISklep\\TISklep.csproj",
         "projectName": "TISklep",
-        "projectPath": "E:\\TISklep\\TISklep\\TISklep.csproj",
+        "projectPath": "F:\\TISklep\\TISklep\\TISklep.csproj",
         "packagesPath": "C:\\Users\\106\\.nuget\\packages\\",
-        "outputPath": "E:\\TISklep\\TISklep\\obj\\",
+        "outputPath": "F:\\TISklep\\TISklep\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

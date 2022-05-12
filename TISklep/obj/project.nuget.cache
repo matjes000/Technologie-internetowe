@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nbaUyuo0iDOyY2oh2mXdne2uvrrPobxLVLFjjbKcWVwHsRRA3UUpchta89vXcfKUtpj9dDCP4VQrLX3n4Pe3HQ==",
+  "dgSpecHash": "UOgZrBEedRr4fHkqzLrjIz2kW6lPJIWyyTpkni3qR8PmvpglaXeS42u6Q6DCvQTrpgA8/5NME+2P2x5dMFTYow==",
   "success": true,
-  "projectFilePath": "E:\\TISklep\\TISklep\\TISklep.csproj",
+  "projectFilePath": "F:\\TISklep\\TISklep\\TISklep.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\106\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\106\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
