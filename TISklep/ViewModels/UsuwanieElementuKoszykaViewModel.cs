@@ -8,8 +8,11 @@ namespace TISklep.ViewModels
     public class UsuwanieElementuKoszykaViewModel
     {
         public int Id { get; set; }
-        public int Ilosc { get; set; }
-        public decimal? WartoscKoszyka { get; set; }
 
+        public int Ilosc { get; set; }
+
+        public decimal WartoscKoszyka { get; set; }
+
+        public int IloscTotal { get; set; }
     }
 }

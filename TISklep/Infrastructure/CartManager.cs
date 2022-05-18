@@ -8,17 +8,21 @@ using TISklep.Models;
 
 namespace TISklep.Infrastructure
 {
-    public class CartManager
+    public static class CartManager
     {
+
         public static int RemoveFromCart(ISession session, int id)
         {
             var cart = GetItems(session);
-            var thisFilm = cart.Find(i => i.film.Id == id);
+
+            var thisFilm = cart.Find(i => i.Film.Id == id);
 
             int ilosc = 0;
+
             if (thisFilm == null)
                 return ilosc;
-            if (thisFilm.Ilosc > 1)
+
+            if(thisFilm.Ilosc > 1)
             {
                 thisFilm.Ilosc--;
                 ilosc = thisFilm.Ilosc;
@@ -29,6 +33,7 @@ namespace TISklep.Infrastructure
             }
 
             SessionHelper.SetObjectAsJson(session, Consts.CartSessionKey, cart);
+
             return ilosc;
         }
 
@@ -36,28 +41,27 @@ namespace TISklep.Infrastructure
         {
             var cart = SessionHelper.GetObjectFromJson<List<CartItem>>(session, Consts.CartSessionKey);
 
-            if (cart == null)
+            if(cart == null)
+            {
                 cart = new List<CartItem>();
+            }
 
             return cart;
         }
 
-        public static decimal? GetCartValue(ISession session)
+        public static decimal GetCartValue(ISession session)
         {
             var cart = GetItems(session);
-
-            if (cart == null)
-                cart = new List<CartItem>();
-            return cart.Sum(item => item.Ilosc * item.film.Cena);
+            return (decimal)cart.Sum(i => i.Ilosc * i.Film.Cena);
         }
 
         public static void AddToCart(ISession session, FilmyContext db, int id)
         {
             var cart = GetItems(session);
 
-            var thisFilm = cart.Find(i => i.film.Id == id);
+            var thisFilm = cart.Find(i => i.Film.Id == id);
 
-            if (thisFilm != null)
+            if(thisFilm != null)
             {
                 thisFilm.Ilosc++;
             }
@@ -65,19 +69,27 @@ namespace TISklep.Infrastructure
             {
                 var newCartItem = db.Filmy.Where(f => f.Id == id).SingleOrDefault();
 
-                if (newCartItem != null)
+                if(newCartItem != null)
                 {
-                    var CartItem = new CartItem()
+                    var cartItem = new CartItem()
                     {
-                        film = newCartItem,
+                        Film = newCartItem,
                         Ilosc = 1,
                         Wartosc = newCartItem.Cena
                     };
-                    cart.Add(CartItem);
+
+                    cart.Add(cartItem);
                 }
             }
 
             SessionHelper.SetObjectAsJson(session, Consts.CartSessionKey, cart);
+        }
+
+        public static int GetCartQuantity(ISession session)
+        {
+            var cart = GetItems(session);
+
+            return cart.Sum(item => item.Ilosc);
         }
     }
 }

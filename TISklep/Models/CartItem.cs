@@ -7,8 +7,7 @@ namespace TISklep.Models
 {
     public class CartItem
     {
-
-        public Film film { get; set; }
+        public Film Film { get; set; }
 
         public int Ilosc { get; set; }
 

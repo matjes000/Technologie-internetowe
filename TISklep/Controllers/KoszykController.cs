@@ -22,6 +22,7 @@ namespace TISklep.Controllers
         public IActionResult Index()
         {
             var cart = CartManager.GetItems(HttpContext.Session);
+
             ViewBag.total = CartManager.GetCartValue(HttpContext.Session);
 
             return View(cart);
@@ -30,6 +31,7 @@ namespace TISklep.Controllers
         public IActionResult DodajDoKoszyka(int idFilmu)
         {
             CartManager.AddToCart(HttpContext.Session, db, idFilmu);
+
             return RedirectToAction("Index");
         }
 
@@ -39,7 +41,8 @@ namespace TISklep.Controllers
             {
                 Id = id,
                 Ilosc = CartManager.RemoveFromCart(HttpContext.Session, id),
-                WartoscKoszyka = CartManager.GetCartValue(HttpContext.Session)
+                WartoscKoszyka = CartManager.GetCartValue(HttpContext.Session),
+                IloscTotal = CartManager.GetCartQuantity(HttpContext.Session)
             };
 
             return Json(model);
