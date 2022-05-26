@@ -10,8 +10,8 @@ using TISklep.DAL;
 namespace TISklep.Migrations.Identity
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20220512131059_identity")]
-    partial class identity
+    [Migration("20220512131053_Identity")]
+    partial class Identity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -33,12 +33,10 @@ namespace TISklep
                 options.Password.RequiredLength = 4;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireDigit = false;
-                options.Password.RequireUppercase = false;
 
                 options.User.RequireUniqueEmail = true;
-
             }).AddEntityFrameworkStores<IdentityContext>();
-            
+
             services.AddDbContext<FilmyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FilmyCS")));
 
             services.AddDbContext<IdentityContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FilmyCS")));
@@ -62,11 +60,11 @@ namespace TISklep
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseAuthentication();
-
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseAuthentication();
 
             app.UseSession();
 

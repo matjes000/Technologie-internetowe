@@ -18,6 +18,7 @@ namespace TISklep.ViewComponents
             this.db = db;
         }
 
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var kategorie = db.Kategorie.ToList();
